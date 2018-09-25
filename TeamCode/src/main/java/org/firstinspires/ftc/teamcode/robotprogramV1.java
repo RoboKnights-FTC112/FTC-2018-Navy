@@ -35,7 +35,7 @@ public class CompetitionProgram extends LinearOpMode {
 
             sweeperMotor.setPower(-gamepad2.right_stick_y);
             armMotor.setPower(-gamepad2.left_stick_y);
-            
+
             if (gamepad1.right_trigger !=0) { //makes the robot drive at speed 1/4 if the right trigger is pressed on gamepad1
               telemetry.addData("Status", "QuarterSpeed");
               rightMotor.setPower(-gamepad1.right_stick_y/4);
