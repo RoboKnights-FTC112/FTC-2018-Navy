@@ -7,8 +7,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 public class CompetitionProgram extends LinearOpMode {
     public DcMotor leftMotor = null;
     public DcMotor rightMotor = null;
-
-
+    public DcMotor armMotor = null;
+    public DcMotor sweeperMotor = null;
     @Override
     public void runOpMode() {
 
@@ -16,6 +16,8 @@ public class CompetitionProgram extends LinearOpMode {
         rightMotor = hardwareMap.dcMotor.get("rd");
         armMotor = hardwareMap.dcMotor.get("arm");
         sweeperMotor = hardwareMap.dcMotor.get("sweep");
+        //sweeperMotor.setPower(-gamepad2.right_stick_y);
+        //armMotor.setPower(-gamepad2.left_stick_y);
 
         leftMotor.setDirection(DcMotor.Direction.REVERSE);
 
@@ -29,14 +31,7 @@ public class CompetitionProgram extends LinearOpMode {
         while (opModeIsActive()) {
             telemetry.addData("Status", "CompetitionProgram");
             telemetry.update();
-
-            rightMotor.setPower(-gamepad1.right_stick_y);
-            leftMotor.setPower(-gamepad1.left_stick_y);
-
-            sweeperMotor.setPower(-gamepad2.right_stick_y);
-            armMotor.setPower(-gamepad2.left_stick_y);
-
-            if (gamepad1.right_trigger !=0) { //makes the robot drive at speed 1/4 if the right trigger is pressed on gamepad1
+            if (gamepad1.left_trigger !=0) { //makes the robot drive at speed 1/4 if the left trigger is pressed on gamepad1
               telemetry.addData("Status", "QuarterSpeed");
               rightMotor.setPower(-gamepad1.right_stick_y/4);
               leftMotor.setPower(-gamepad1.left_stick_y/4);
@@ -60,12 +55,12 @@ public class CompetitionProgram extends LinearOpMode {
             }else if (gamepad2.left_bumper) {  // makes the arm speed 1/2 when the left stick is pressed on gamepad2
               telemetry.addData("Status", "HalfSpeedArm");
               armMotor.setPower(-gamepad2.left_stick_y/2);
-            }else{ // makes everything full power
+            }else{
               telemetry.addData("Status", "AllFullPower");
-              sweeperMotor.setPower(-gamepad2.right_stick_y);
-              armMotor.setPower(-gamepad2.left_stick_y);
               rightMotor.setPower(-gamepad1.right_stick_y);
               leftMotor.setPower(-gamepad1.left_stick_y);
+              sweeperMotor.setPower(-gamepad2.right_stick_y);
+              armMotor.setPower(-gamepad2.left_stick_y);
             }
         }
     }
