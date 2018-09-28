@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 
 @TeleOp
 
-public class CompetitionProgram extends LinearOpMode {
+public class CompetitionProgramV1 extends LinearOpMode {
     public DcMotor leftMotor = null;
     public DcMotor rightMotor = null;
     public DcMotor armMotor = null;

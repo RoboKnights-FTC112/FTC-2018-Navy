@@ -1,10 +1,10 @@
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 @TeleOp
 
-public class FactorProgram extends LinearOpMode {
+public class FactorProgramV1 extends LinearOpMode {
     public DcMotor leftMotor = null;
     public DcMotor rightMotor = null;
 
@@ -32,8 +32,8 @@ public class FactorProgram extends LinearOpMode {
             telemetry.addData("Status", "FactorProgram");
             telemetry.update();
 
-            double factor = ;
-            double factor2 = ;
+            double factor = null;
+            double factor2 = null;
 
             rightMotor.setPower(-gamepad1.right_stick_y*factor);
             leftMotor.setPower(-gamepad1.left_stick_y*factor);

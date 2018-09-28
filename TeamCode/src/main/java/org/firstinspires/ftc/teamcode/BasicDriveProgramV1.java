@@ -4,10 +4,11 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 
 @TeleOp
 
-public class BasicDriveProgram extends LinearOpMode {
+public class BasicDriveProgramV1 extends LinearOpMode {
     public DcMotor leftMotor = null;
     public DcMotor rightMotor = null;
-
+    public DcMotor armMotor = null;
+    public DcMotor sweeperMotor = null;
     @Override
     public void runOpMode() {
 
