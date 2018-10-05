@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 
 @TeleOp
 
-public class CompetitionProgramV1 extends LinearOpMode {
+public class BasicDriveProgramV2 extends LinearOpMode {
     public DcMotor leftMotor = null;
     public DcMotor rightMotor = null;
     public DcMotor armMotor = null;
@@ -29,7 +29,7 @@ public class CompetitionProgramV1 extends LinearOpMode {
         waitForStart();
 
         while (opModeIsActive()) {
-            telemetry.addData("Status", "CompetitionProgram");
+            telemetry.addData("Status", "BasicDriveProgramV2");
             telemetry.update();
             if (gamepad1.left_trigger !=0) { //makes the robot drive at speed 1/4 if the left trigger is pressed on gamepad1
               telemetry.addData("Status", "QuarterSpeed");
