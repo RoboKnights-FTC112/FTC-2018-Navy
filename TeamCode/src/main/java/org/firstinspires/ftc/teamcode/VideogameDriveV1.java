@@ -36,12 +36,13 @@ public class VideogameDriveV1 extends LinearOpMode {
               powerMultiple = -gamepad1.left_trigger;
             }else{
               powerMultiple = gamepad1.right_trigger;
-            }if (gamepad1.left_stick_x > 0) {
+            }
+            if (gamepad1.left_stick_x < 0) {
               rightMotor.setPower(powerMultiple);
-              leftMotor.setPower(powerMultiple*(1-gamepad1.left_stick_x));
-            }else if (gamepad1.left_stick_x < 0) {
+              leftMotor.setPower(powerMultiple*(1+gamepad1.left_stick_x));
+            }else if (gamepad1.left_stick_x > 0) {
               leftMotor.setPower(powerMultiple);
-              rightMotor.setPower(powerMultiple*(1+gamepad1.left_stick_x));
+              rightMotor.setPower(powerMultiple*(1-gamepad1.left_stick_x));
             }else {
               rightMotor.setPower(powerMultiple);
               leftMotor.setPower(powerMultiple);
