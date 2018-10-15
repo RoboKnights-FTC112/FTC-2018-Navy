@@ -20,12 +20,12 @@ public class VideogameDriveV2 extends LinearOpMode {
         telemetry.update();
         waitForStart();
         while (opModeIsActive()) {
-            telemetry.addData("Status", "VideogameDriveV2");
+            telemetry.addData("Status","VideogameDriveV2");
             telemetry.update();
             double powerMultiple = gamepad1.right_trigger;
 
             if (gamepad1.left_trigger != 0 || gamepad1.right_trigger != 0) {
-              telemetry.addData("VideogameDrive Mode");
+              telemetry.addData("Status","VideogameDriveMode");
               if (gamepad1.left_trigger != 0) {
                 powerMultiple = -gamepad1.left_trigger;
               }
@@ -40,7 +40,7 @@ public class VideogameDriveV2 extends LinearOpMode {
                 leftMotor.setPower(powerMultiple);
               }
             }else{
-              telemetry.addData("TankDrive Mode");
+              telemetry.addData("Status", "TankDriveMode");
               rightMotor.setPower(-gamepad1.right_stick_y);
               leftMotor.setPower(-gamepad1.left_stick_y);
             }
