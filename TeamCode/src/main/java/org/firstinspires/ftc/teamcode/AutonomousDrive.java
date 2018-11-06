@@ -33,7 +33,7 @@ public class AutonomousDrive extends LinearOpMode {
             leftMotor.setPower(100);
             telemetry.addData("Status", "Forward");
             telemetry.update();
-            sleep(2500);
+            sleep(2320);
             rightMotor.setPower(0);
             leftMotor.setPower(0);
             telemetry.addData("Status", "Stop");
@@ -43,12 +43,12 @@ public class AutonomousDrive extends LinearOpMode {
             leftMotor.setPower(-100);
             telemetry.addData("Status", "back");
             telemetry.update();
-            sleep(1000);
+            sleep(500);
             rightMotor.setPower(-100);
             leftMotor.setPower(100);
             telemetry.addData("Status", "right");
             telemetry.update();
-            sleep(900);
+            sleep(750);
             rightMotor.setPower(100);
             leftMotor.setPower(100);
             telemetry.addData("Status", "Forward");
