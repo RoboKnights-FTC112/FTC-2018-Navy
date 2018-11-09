@@ -15,7 +15,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackables;
 /**
  * Created by Windows on 2016-09-19.
  */
-public class RoboKnightsNavy extends LinearOpMode {
+public class VuforiaOp extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
         VuforiaLocalizer.Parameters params = new VuforiaLocalizer.Parameters(R.id.cameraMonitorViewId);
@@ -26,18 +26,21 @@ public class RoboKnightsNavy extends LinearOpMode {
         VuforiaLocalizer vuforia = ClassFactory.createVuforiaLocalizer(params);
         Vuforia.setHint(HINT.HINT_MAX_SIMULTANEOUS_IMAGE_TARGETS, 4);
 
-        VuforiaTrackables beacons = vuforia.loadTrackablesFromAsset("sphere");
-        beacons.get(0).setName("sphere");
+        VuforiaTrackables beacons = vuforia.loadTrackablesFromAsset("FTC_2016-17");
+        beacons.get(0).setName("Wheels");
+        beacons.get(1).setName("Tools");
+        beacons.get(2).setName("Lego");
+        beacons.get(3).setName("Gears");
 
         waitForStart();
 
         beacons.activate();
 
-        while (opModeIsActive()) {
-            for (VuforiaTrackable beac : beacons) {
+        while (opModeIsActive()){
+            for(VuforiaTrackable beac : beacons){
                 OpenGLMatrix pose = ((VuforiaTrackableDefaultListener) beac.getListener()).getPose();
 
-                if (pose != null) {
+                if(pose != null){
                     VectorF translation = pose.getTranslation();
 
                     telemetry.addData(beac.getName() + "-Translation", translation);
@@ -50,6 +53,4 @@ public class RoboKnightsNavy extends LinearOpMode {
             telemetry.update();
         }
     }
-}
-
-
+}﻿
