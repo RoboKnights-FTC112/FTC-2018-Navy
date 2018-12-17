@@ -103,14 +103,15 @@ public class CompetitionProgramV3 extends LinearOpMode {
             if (leftarmMotorposition > 380 ) {
               rightarmMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
               leftarmMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-              rightarmMotor.setTargetPosition(360);
+              rightarmMotor.setTargetPosition(380);
               rightarmMotor.setPower(1);
-              leftarmMotor.setTargetPosition(360);
+              leftarmMotor.setTargetPosition(380);
               leftarmMotor.setPower(1);
+
             }else{
               if (gamepad2.right_stick_y > 0) {
-                rightarmMotor.setPower(-gamepad2.right_stick_y/3);
-                leftarmMotor.setPower(-gamepad2.right_stick_y/3);
+                rightarmMotor.setPower(-gamepad2.right_stick_y);
+                leftarmMotor.setPower(-gamepad2.right_stick_y);
               }else{
                 rightarmMotor.setPower(-gamepad2.right_stick_y);
                 leftarmMotor.setPower(-gamepad2.right_stick_y);
@@ -118,13 +119,13 @@ public class CompetitionProgramV3 extends LinearOpMode {
             }
 
             if (gamepad2.left_stick_y < 0) {
-              midarmMotor.setPower(gamepad2.left_stick_y/3);
+              midarmMotor.setPower(gamepad2.left_stick_y);
             }else{
               midarmMotor.setPower(gamepad2.left_stick_y);
             }
 
-            sweepMotor.setPower(gamepad2.right_trigger);
-            sweepMotor.setPower(-gamepad2.left_trigger);
+            sweepMotor.setPower(-gamepad2.right_trigger);
+            sweepMotor.setPower(gamepad2.left_trigger);
 
             telemetry.addData("Encoder rightarmMotorposition", rightarmMotorposition);
             telemetry.addData("Encoder leftarmMotorposition", leftarmMotorposition);
