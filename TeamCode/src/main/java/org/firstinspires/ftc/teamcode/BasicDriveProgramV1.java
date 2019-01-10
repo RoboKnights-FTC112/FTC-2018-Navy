@@ -8,31 +8,26 @@ public class BasicDriveProgramV1 extends LinearOpMode {
 
     public DcMotor leftMotor = null; // motor controller 1
     public DcMotor rightMotor = null;
-    public DcMotor rightarmMotor = null;
-    public DcMotor leftarmMotor = null;
-
-    public DcMotor liftMotor = null; // motor controller 2
     public DcMotor midarmMotor = null;
-    public Dcmotor sweepMotor = null;
-    public Dcmotor extraMotor = null;
+    public DcMotor liftMotor = null;
+
+    public Dcmotor strafeMotor = null;  // motor controller 2
+    public Dcmotor strafe2Motor = null;
 
     @Override
     public void runOpMode() {
 
         leftMotor = hardwareMap.dcMotor.get("ld");
         rightMotor = hardwareMap.dcMotor.get("rd");
-        rightarmMotor = hardwareMap.dcMotor.get("ra");
-        leftarmMotor = hardwareMap.dcMotor.get("la");
-
         liftMotor = hardwareMap.dcMotor.get("ld2");
         midarmMotor = hardwareMap.dcMotor.get("rd2")
-        sweepMotor = hardwareMap.dcMotor.get("ra2")
-        extraMotor = hardwareMap.dcMotot.get("la2")
+
+        strafeMotor = hardwareMap.dcMotor.get("sd")
+        strafe2Motor = hardwareMap.dcMotot.get("sd2")
 
 
 
         leftMotor.setDirection(DcMotor.Direction.REVERSE);
-        leftarmMotor.setDirection(DcMotor.Direction.REVERSE);
 
 
         telemetry.addData("Status", "Initialized");
@@ -50,11 +45,17 @@ public class BasicDriveProgramV1 extends LinearOpMode {
 
             liftMotor.setPower(-gamepad2.left_stick_y);
 
-            rightarmMotor.setPower(-gamepad2.right_stick_y);
-            leftarmMotor.setPower(-gamepad2.right_stick_y);
+            midarmMotor.setPower(-gamepad2.right_stick_y);
 
+            if (gamepad1.right_trigger) {
+              strafeMotor.setPower(gamepad1.right_trigger)
+              strafe2Motor.setpower(gamepad1.right_trigger)
+            }
+            if (gamepad1.left_trigger) {
+              strafeMotor.setpower(-gamepad1.left_trigger)
+              strafe2Motor.setPower(-gamepad1.left_trigger)
+            }
             
-
         }
     }
 }
