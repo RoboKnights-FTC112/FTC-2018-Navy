@@ -28,30 +28,31 @@
  */
 
 package org.firstinspires.ftc.teamcode;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+
+
+import static java.lang.Thread.sleep;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
-import com.qualcomm.robotcore.util.ElapsedTime;
 import com.disnodeteam.dogecv.CameraViewDisplay;
-import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.disnodeteam.dogecv.DogeCV;
 import com.disnodeteam.dogecv.detectors.roverrukus.GoldAlignDetector;
-import com.disnodeteam.dogecv.detectors.roverrukus.SamplingOrderDetector;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.util.ElapsedTime;
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
-
 import com.qualcomm.robotcore.util.ElapsedTime;
+import com.disnodeteam.dogecv.detectors.roverrukus.SamplingOrderDetector;
 
-import static java.lang.Thread.sleep;
 
 
 @Autonomous(name="GoldAlign2", group="DogeCV")
@@ -126,7 +127,7 @@ public class GoldAlign2 extends OpMode
         //down from latch
         liftMotor.setPower(-100);
         try {
-            sleep(11000);
+            sleep(10000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -147,7 +148,7 @@ public class GoldAlign2 extends OpMode
         rightMotor.setPower(20);
         leftMotor.setPower(20);
         try {
-            sleep(90);
+            sleep(120);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -158,7 +159,7 @@ public class GoldAlign2 extends OpMode
         strafeMotor.setPower(100);
         strafe2Motor.setPower(100);
         try {
-            sleep(1000);
+            sleep(750);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -166,10 +167,10 @@ public class GoldAlign2 extends OpMode
         strafe2Motor.setPower(0);
 
         //drive forward to sample far right block
-        rightMotor.setPower(50);
-        leftMotor.setPower(50);
+        rightMotor.setPower(30);
+        leftMotor.setPower(30);
         try {
-            sleep(200);
+            sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -191,9 +192,14 @@ public class GoldAlign2 extends OpMode
             strafeMotor.setPower(0);
             strafe2Motor.setPower(0);
         }else{
-            rightMotor.setPower(-50);
-            leftMotor.setPower(-50);
+            rightMotor.setPower(-10);
+            leftMotor.setPower(-10);
         }
+
+        rightMotor.setPower(0);
+        leftMotor.setPower(0);
+        strafeMotor.setPower(0);
+        strafe2Motor.setPower(0);
 
     }
 
